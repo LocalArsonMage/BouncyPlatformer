@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bm0k14oi8fjmc"]
+
+[ext_resource type="Texture2D" uid="uid://c53yncj0u00mb" path="res://icon.svg" id="1_0ohsc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyypf"]
+
+[node name="Node2D" type="Node2D" unique_id=1944563457]
+
+[node name="lever" type="Area2D" parent="." unique_id=1443173590]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lever" unique_id=1781936765]
+shape = SubResource("RectangleShape2D_iyypf")
+
+[node name="Sprite2D" type="Sprite2D" parent="lever" unique_id=2055191711]
+position = Vector2(5.9604645e-08, 0)
+scale = Vector2(0.15625001, 0.15625004)
+texture = ExtResource("1_0ohsc")

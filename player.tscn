@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://dprcgeo0oc6jy"]
+
+[ext_resource type="Script" uid="uid://spf5xnk61cdg" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://cp5t6wdkdhds4" path="res://little_slime_dude/sprite_8.png" id="2_dw050"]
+[ext_resource type="Texture2D" uid="uid://c03r5uncqh3xq" path="res://little_slime_dude/sprite_7.png" id="3_hqtel"]
+[ext_resource type="Texture2D" uid="uid://d1dm6esix55ty" path="res://little_slime_dude/sprite_6.png" id="4_sweqy"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2hs0m"]
+load_path = "res://.godot/imported/sprite_0.png-966b2c4d4e6a141b8c23a023ea825a7c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1jxqw"]
+load_path = "res://.godot/imported/sprite_3.png-c74d78415f78864030dc8fa629fe1c55.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dw050"]
+load_path = "res://.godot/imported/sprite_4.png-ffab9be706fb6d1eaed309040960a71a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b26j0"]
+load_path = "res://.godot/imported/sprite_5.png-96f86e44beeb84caf02a838fb69b1258.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n7ghd"]
+load_path = "res://.godot/imported/sprite_1.png-ad393f97736d3772bc1ff7f3b9bd1f97.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nvl01"]
+load_path = "res://.godot/imported/sprite_2.png-4aec03ca4fae26120c5207c719117e9e.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iyypf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dw050")
+}],
+"loop": 1,
+"name": &"bounce_mode",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hqtel")
+}],
+"loop": 1,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_2hs0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_1jxqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_dw050")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_b26j0")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_sweqy")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_n7ghd")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_nvl01")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7104e"]
+size = Vector2(14, 14.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jgdx"]
+size = Vector2(3, 9.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htwmb"]
+size = Vector2(3, 9.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyypf"]
+size = Vector2(14, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwos5"]
+size = Vector2(14, 15)
+
+[node name="player" type="CharacterBody2D" unique_id=6669828]
+script = ExtResource("1_onrkg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1804298930]
+texture_filter = 1
+position = Vector2(-6.556511e-07, -2.9802322e-08)
+scale = Vector2(0.99999994, 1)
+sprite_frames = SubResource("SpriteFrames_iyypf")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1892198067]
+position = Vector2(0, 0.4375)
+shape = SubResource("RectangleShape2D_7104e")
+
+[node name="LeftArea2D" type="Area2D" parent="." unique_id=2050041957]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArea2D" unique_id=1154837045]
+position = Vector2(-7.5, 1.875)
+shape = SubResource("RectangleShape2D_5jgdx")
+one_way_collision_margin = 0.0
+one_way_collision_direction = Vector2(1, 0)
+
+[node name="RightArea2D" type="Area2D" parent="." unique_id=1408154513]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightArea2D" unique_id=690572122]
+position = Vector2(7.5, 1.875)
+shape = SubResource("RectangleShape2D_htwmb")
+one_way_collision_direction = Vector2(-1, 0)
+
+[node name="MainArea2D" type="Area2D" parent="." unique_id=519588485]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainArea2D" unique_id=1770874776]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_iyypf")
+
+[node name="SpikeDetector" type="Area2D" parent="." unique_id=480546304]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeDetector" unique_id=966058918]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_pwos5")
+
+[node name="Timer" type="Timer" parent="." unique_id=1459997894]
+wait_time = 0.1
+
+[connection signal="body_entered" from="LeftArea2D" to="." method="_on_left_area_2d_body_entered"]
+[connection signal="body_entered" from="RightArea2D" to="." method="_on_right_area_2d_body_entered"]
+[connection signal="area_entered" from="MainArea2D" to="." method="_on_main_area_2d_area_entered"]
+[connection signal="area_exited" from="MainArea2D" to="." method="_on_main_area_2d_area_exited"]
+[connection signal="body_entered" from="SpikeDetector" to="." method="_on_spike_detector_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

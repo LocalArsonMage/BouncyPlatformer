@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bjeblvdxg2t2"]
+
+[ext_resource type="Script" uid="uid://dlwkvi6fbp76a" path="res://fullscreen_button.gd" id="1_f2cwa"]
+
+[node name="fullscreen_button" type="Node2D" unique_id=1034480187]
+script = ExtResource("1_f2cwa")
+
+[node name="CheckBox" type="CheckBox" parent="." unique_id=288384633]
+offset_right = 24.0
+offset_bottom = 24.0
+text = "Fullscreen
+"
+
+[connection signal="toggled" from="CheckBox" to="." method="_on_check_box_toggled"]

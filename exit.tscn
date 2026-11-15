@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bttsodlcxikq5"]
+
+[ext_resource type="Texture2D" uid="uid://du0t251v85s7x" path="res://random_door/sprite_0.png" id="1_6sfst"]
+[ext_resource type="Script" uid="uid://dxr3x7radnd15" path="res://exit_door.gd" id="1_24kvk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyypf"]
+size = Vector2(31.5, 31.5)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_24kvk"]
+load_path = "res://.godot/imported/sprite_1.png-600cefa2ac785a3c85ded261b2d303b1.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iyypf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6sfst")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_24kvk")
+}],
+"loop": 1,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="exit" type="Node2D" unique_id=1201718145]
+
+[node name="exit_door" type="Area2D" parent="." unique_id=1190226736]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_24kvk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit_door" unique_id=1010734591]
+shape = SubResource("RectangleShape2D_iyypf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="exit_door" unique_id=1472261034]
+texture_filter = 1
+position = Vector2(-5.9604645e-08, 5.9604645e-08)
+scale = Vector2(0.984375, 0.984375)
+sprite_frames = SubResource("SpriteFrames_iyypf")

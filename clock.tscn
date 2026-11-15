@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://dfbqa422m4o1n"]
+
+[ext_resource type="Texture2D" uid="uid://bcjcm5t3pk111" path="res://clock_of_doom/sprite_02.png" id="1_rwv3y"]
+[ext_resource type="Script" uid="uid://dh5ivie7px2l1" path="res://clock.gd" id="1_venu5"]
+[ext_resource type="Texture2D" uid="uid://4dackw6oenit" path="res://clock_of_doom/sprite_03.png" id="2_20ang"]
+[ext_resource type="Texture2D" uid="uid://c33yg1s4s8s6o" path="res://clock_of_doom/sprite_04.png" id="3_r11bh"]
+[ext_resource type="Texture2D" uid="uid://dojqefo3235ta" path="res://clock_of_doom/sprite_05.png" id="4_umrnc"]
+[ext_resource type="Texture2D" uid="uid://b8x8kk8g70lh1" path="res://clock_of_doom/sprite_06.png" id="5_gy52w"]
+[ext_resource type="Texture2D" uid="uid://dh7vg1d3ad7ug" path="res://clock_of_doom/sprite_07.png" id="6_thogr"]
+[ext_resource type="Texture2D" uid="uid://dbd7k5jryhuj6" path="res://clock_of_doom/sprite_08.png" id="7_x6sbk"]
+[ext_resource type="Texture2D" uid="uid://dtn3d26yg5m7j" path="res://clock_of_doom/sprite_09.png" id="8_7nqlw"]
+[ext_resource type="Texture2D" uid="uid://0jxbcykgymiu" path="res://clock_of_doom/sprite_00.png" id="10_umrnc"]
+[ext_resource type="Texture2D" uid="uid://dfd75yt6r5bd5" path="res://clock_of_doom/sprite_01.png" id="11_gy52w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iyypf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rwv3y")
+}],
+"loop": 1,
+"name": &"clock_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_20ang")
+}],
+"loop": 1,
+"name": &"clock_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_r11bh")
+}],
+"loop": 1,
+"name": &"clock_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_umrnc")
+}],
+"loop": 1,
+"name": &"clock_4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_gy52w")
+}],
+"loop": 1,
+"name": &"clock_5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_thogr")
+}],
+"loop": 1,
+"name": &"clock_6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_x6sbk")
+}],
+"loop": 1,
+"name": &"clock_7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_7nqlw")
+}],
+"loop": 1,
+"name": &"clock_8",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_umrnc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_gy52w")
+}],
+"loop": 1,
+"name": &"start",
+"speed": 5.0
+}]
+
+[node name="clock" type="Node2D" unique_id=489233750]
+script = ExtResource("1_venu5")
+
+[node name="Timer" type="Timer" parent="." unique_id=911752658]
+wait_time = 0.3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1365982436]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_iyypf")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

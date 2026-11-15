@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cm2vbwkiim12w"]
+
+[ext_resource type="Script" uid="uid://d5lbr75y6jhw" path="res://exit_button.gd" id="1_e36mi"]
+
+[node name="exit_button" type="Node2D" unique_id=2004915023]
+script = ExtResource("1_e36mi")
+
+[node name="Area2D" type="Button" parent="." unique_id=1490333795]
+texture_filter = 1
+offset_left = -24.0
+offset_top = -16.0
+offset_right = 24.0
+offset_bottom = 16.0
+text = "Exit"
+
+[connection signal="pressed" from="Area2D" to="." method="_on_area_2d_pressed"]
