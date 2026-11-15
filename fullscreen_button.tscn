@@ -1,9 +1,29 @@
 [gd_scene format=3 uid="uid://bjeblvdxg2t2"]
 
-[ext_resource type="Script" uid="uid://dlwkvi6fbp76a" path="res://fullscreen_button.gd" id="1_f2cwa"]
+[sub_resource type="GDScript" id="GDScript_tpu8u"]
+script/source = "extends Node2D
+
+var fullscreen = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_check_box_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+"
 
 [node name="fullscreen_button" type="Node2D" unique_id=1034480187]
-script = ExtResource("1_f2cwa")
+script = SubResource("GDScript_tpu8u")
 
 [node name="CheckBox" type="CheckBox" parent="." unique_id=288384633]
 offset_right = 24.0
